@@ -31,7 +31,8 @@ public class MainActivity extends ActionBarActivity
             thumbnails.add(tempView);
         }
         videos.videos = thumbnails ;
-        ((ListView)findViewById(R.id.listView)).setAdapter(videos);
+        ((ListViewH)findViewById(R.id.list_view_horiz)).setAdapter(videos);
+        ((ListViewH)findViewById(R.id.list_view_horiz)).arrangeViews();
     }
 
 

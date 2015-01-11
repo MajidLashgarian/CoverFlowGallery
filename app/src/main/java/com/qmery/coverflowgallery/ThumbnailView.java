@@ -12,6 +12,7 @@
  * */
 package com.qmery.coverflowgallery;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -192,13 +193,16 @@ public class ThumbnailView extends RelativeLayout
      */
     private void resizeChild()
     {
-        if(m_width == getWidth())
+        int screenSizeW = ((Activity)(m_context)).getWindowManager().getDefaultDisplay().getWidth
+                ();
+        if(m_width == screenSizeW )
             return ;
-        m_width = getWidth() ;//width of display
+        m_width = screenSizeW ;
+        int width = getWidth() ;//width of display
         int height = getHeight() ;//height of display
 
-        resizethumbnail(m_width, height);
-        resizeTime(m_width, height);
+        resizethumbnail(width, height);
+        resizeTime(width, height);
         //TODO Also must implement resize title, time and other stuff here
     }
 
@@ -235,17 +239,18 @@ public class ThumbnailView extends RelativeLayout
      * */
     private void resizethumbnail(int width, int height)
     {
-        float rt_leftMargin   = 0f, //rt = ratio thumbnail left margin
-                rt_topMargin  = 0f,
-                rt_WidthMargin  = 1.0f,
-                rt_heightMargin = 1.0f;
+        float rt_leftMargin   = 0.05f, //rt = ratio thumbnail left margin
+                rt_topMargin  = 0.0f,
+                rt_WidthMargin  = 0.6f,
+                rt_heightMargin = 0.6f;
 
         RelativeLayout.LayoutParams layoutParam = (RelativeLayout.LayoutParams)m_thumbnail
                 .getLayoutParams();
-        layoutParam.height = (int)rt_heightMargin*height ;
-        layoutParam.width = (int)rt_WidthMargin*width ;
-        layoutParam.leftMargin = (int)rt_leftMargin*width ;
-        layoutParam.topMargin=  (int)rt_topMargin*height ;
+        layoutParam.height = (int)(rt_heightMargin*height) ;
+        layoutParam.width = (int)(rt_WidthMargin*width) ;
+        layoutParam.leftMargin = (int)(rt_leftMargin*width) ;
+        layoutParam.rightMargin = (int)(rt_leftMargin*width) ;
+        layoutParam.topMargin  =  (int)(rt_topMargin*height) ;
         m_thumbnail.setLayoutParams(layoutParam);
 
     }
