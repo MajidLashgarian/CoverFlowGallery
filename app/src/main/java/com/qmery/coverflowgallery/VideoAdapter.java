@@ -13,6 +13,8 @@
 
 package com.qmery.coverflowgallery;
 
+import android.provider.MediaStore;
+import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -22,17 +24,20 @@ import java.util.ArrayList;
 /**
  * Author: Majid Lashgarian
  * Date: 10/1/15
- *
+ * <p/>
  * VideoAdapter class inherit from base adapter for store
  * video thumbnail, title and video time for showing in a
  * horizontal list view(Cover flow).
  */
-public class VideoAdapter extends BaseAdapter{
+public class VideoAdapter extends BaseAdapter
+{
 
 
-    private ArrayList<String> videos ;/** Videos which shows in cover flow */
+    public ArrayList<ThumbnailView> videos = new ArrayList<ThumbnailView>();/** Videos which
+ shows in cover flow */
 
-
+    public VideoAdapter()
+    {}
 
     /**
      * Author: Majid Lashgarian
@@ -43,7 +48,7 @@ public class VideoAdapter extends BaseAdapter{
     @Override
     public int getCount()
     {
-        return videos.size() ;
+        return videos.size();
     }
 
     /**
@@ -51,11 +56,11 @@ public class VideoAdapter extends BaseAdapter{
      * Date: 10/1/15
      *
      * @return return videoView which must show in cover flow
-     * */
+     */
     @Override
     public View getItem(int position)
     {
-        return null ;
+        return videos.get(position);
     }
 
     /**
@@ -65,11 +70,11 @@ public class VideoAdapter extends BaseAdapter{
      * @param position position number of VideoView
      *
      * @return return VideoView ID
-     * */
+     */
     @Override
     public long getItemId(int position)
     {
-        return 0 ;
+        return position;
     }
 
 
@@ -79,14 +84,18 @@ public class VideoAdapter extends BaseAdapter{
      *
      * @param position
      * @param convertView
-     * @param parent CoverFlow parent View
+     * @param parent      CoverFlow parent View
      *
      * @return return VideoView which at position
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent)
     {
-        return null;
+//        ThumbnailView newThump = new ThumbnailView( );
+//        newThump.setImage(convertView.getContext().getResources().getDrawable(R.drawable.p1));
+//        newThump.setTime("2:30");
+//        videos.add(newThump);
+        return videos.get(position);
     }
 
 }
