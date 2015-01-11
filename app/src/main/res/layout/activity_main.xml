@@ -7,7 +7,7 @@
     tools:context="com.qmery.coverflowgallery.MainActivity">
 
 
-    <HorizontalScrollView
+    <com.qmery.coverflowgallery.ScrollBarView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/horizontalScrollView"
@@ -20,6 +20,6 @@
             android:layout_height="fill_parent">
 
             </com.qmery.coverflowgallery.ListViewH>
-    </HorizontalScrollView>
+    </com.qmery.coverflowgallery.ScrollBarView>
 
 </RelativeLayout>

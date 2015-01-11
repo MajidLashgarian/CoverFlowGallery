@@ -13,7 +13,10 @@
 package com.qmery.coverflowgallery;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import java.util.ArrayList;
@@ -120,6 +123,15 @@ public class ListViewH extends LinearLayout
         }//end of for
     }// end of functin
 
-
-
-}
+    /**
+     * Author: Majid Lashgarian
+     * Date: 11/1/15
+     *
+     * @return all videos
+     *
+     * */
+    public BaseAdapter getAdapter()
+    {
+        return m_adapter ;
+    }
+ }
