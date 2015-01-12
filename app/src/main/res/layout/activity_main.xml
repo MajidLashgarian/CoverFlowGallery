@@ -16,7 +16,7 @@
 
         <com.qmery.coverflowgallery.ListViewH
             android:id="@+id/list_view_horiz"
-            android:layout_width="fill_parent"
+            android:layout_width="100dp"
             android:layout_height="fill_parent">
 
             </com.qmery.coverflowgallery.ListViewH>

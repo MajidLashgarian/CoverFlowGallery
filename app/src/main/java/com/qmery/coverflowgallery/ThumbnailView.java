@@ -15,8 +15,10 @@ package com.qmery.coverflowgallery;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Camera;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.provider.CalendarContract;
@@ -24,6 +26,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -57,6 +61,8 @@ public class ThumbnailView extends RelativeLayout
 
     /**Width of screenSize*/
     private int m_width;
+
+
     /**
      * Author: Majid Lashgarian
      * Date: 10/1/15
@@ -241,10 +247,10 @@ public class ThumbnailView extends RelativeLayout
      * */
     private void resizethumbnail(int width, int height)
     {
-        float rt_leftMargin   = 0.05f, //rt = ratio thumbnail left margin
+        float rt_leftMargin   = 0.0f, //rt = ratio thumbnail left margin
                 rt_topMargin  = 0.0f,
-                rt_WidthMargin  = 0.6f,
-                rt_heightMargin = 0.6f;
+                rt_WidthMargin  = 0.3f,
+                rt_heightMargin = 0.3f;
 
         RelativeLayout.LayoutParams layoutParam = (RelativeLayout.LayoutParams)m_thumbnail
                 .getLayoutParams();
@@ -277,9 +283,13 @@ public class ThumbnailView extends RelativeLayout
     @Override
     protected void onDraw(Canvas canvas)
     {
+
         resizeChild();
         super.onDraw(canvas);
     }
+
+
+
 
 }
 
